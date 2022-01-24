@@ -1,7 +1,7 @@
 package TestCases;
 
 import Data.Data;
-import Objects.Account;
+import Objects.Accounts;
 import Pages.LoginPage;
 import Utils.Constants;
 import org.testng.annotations.*;
@@ -27,10 +27,10 @@ public class TestLoginLoop extends BaseTest {
     @Test
     public void verifyLoginSuccess() {
         String delimiter = ";";
-        ArrayList<Account> list_accounts = Data.getAccountsCSV(Constants.ACCOUNT_CSV_FILE, delimiter);
+        ArrayList<Accounts> list_accounts = Data.getAccountsCSV(Constants.ACCOUNT_CSV_FILE, delimiter);
         for (Object object : list_accounts) {
             loginPage.get(Constants.URL);
-            loginPage.login((Account) object);
+            loginPage.login((Accounts) object);
         }
     }
 }
